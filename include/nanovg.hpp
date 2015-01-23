@@ -30,6 +30,7 @@ class Context {
 
 public:
   Context(NVGcontext *ptr, Deleter deleter);
+  Context(Context&& ctx) : mPtr{ std::move(ctx.mPtr) } {}
 
   inline NVGcontext* get() { return mPtr.get(); }
 
